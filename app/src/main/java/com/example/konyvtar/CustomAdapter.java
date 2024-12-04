@@ -44,6 +44,15 @@ public class CustomAdapter extends BaseAdapter {
         author.setText(konyvek.get(position).getAuthor());
         page.setText(konyvek.get(position).getPage_count().toString());
 
+        this.torol = convertView.findViewById(R.id.torol);
+        torol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                konyvek.remove(position);
+                notifyDataSetChanged();
+            }
+        });
+
         return convertView;
 
     }
